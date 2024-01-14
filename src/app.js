@@ -1,6 +1,6 @@
 import express from "express";
 import connectionDataBase from "./app/database/connection.js";
-import managementController from "./app/controllers/management.js";
+import managementController from "./app/controllers/management.controller.js";
 
 const app = express();
 
@@ -16,8 +16,4 @@ app.put("/bairros/gerenciamento/update/:id", managementController.neighborhoodUp
 
 app.delete("/bairros/gerenciamento/delete/:id", managementController.neighborhoodDelete);
 
-// app.put("/gerenciamento/:id", managementController.neighborhoodUpdate)
-
 export default app;
-
-// GET, POST, PUT, DELETE

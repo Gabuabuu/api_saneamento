@@ -19,9 +19,9 @@ class managementController {
       const row = result[0];
       if (error) {
         console.log(error);
-        res.status(400).json({ error: `${error}` });
+        res.status(400).send(`O id ${id} não foi encontrado`);
       } else {
-        res.status(200).json(row);
+        res.status(200).send(row);
       }
     });
   }
@@ -32,9 +32,9 @@ class managementController {
     connectionDataBase.query(sql, bairro, (error, result) => {
       if (error) {
         console.log(error);
-        res.status(404).json({ error: `${error}` });
+        res.status(404).send(`Erro ao inserir as informações`);
       } else {
-        res.status(201).json(result);
+        res.status(201).send(`O bairro ${bairro.bairro} e suas informações foram criados com sucesso!`);
       }
     });
   }
@@ -48,7 +48,7 @@ class managementController {
         console.log(error);
         res.status(400).json({ error: `${error}` });
       } else {
-        res.status(200).json(result);
+        res.status(200).send(`As informações do bairro ${bairro.bairro} foram atualizadas com sucesso`);
       }
     });
   }
@@ -59,9 +59,9 @@ class managementController {
     connectionDataBase.query(sql, id, (error, result) => {
       if (error) {
         console.log(error);
-        res.status(400).json({ error: `${error}` });
+        res.status(400).json(`Erro ao deletar o id ${id}`);
       } else {
-        res.status(200).send(`O bairro com o id ${req.params.id} foi excluido com sucesso!`);
+        res.status(200).send(`O bairro com o id ${id} foi excluido com sucesso!`);
       }
     });
   }
