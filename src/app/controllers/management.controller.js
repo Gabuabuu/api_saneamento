@@ -17,11 +17,12 @@ class managementController {
     const sql = "SELECT * FROM bairros WHERE id=?";
     connectionDataBase.query(sql, id, (error, result) => {
       const row = result[0];
-      if (error) {
-        console.log(error);
+      // console.error(row)
+      // console.log(row)
+      if(!row){
         res.status(400).send(`O id ${id} não foi encontrado`);
-      } else {
-        res.status(200).send(row);
+    } else {
+        res.status(200).send(row); 
       }
     });
   }
