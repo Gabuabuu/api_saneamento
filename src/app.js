@@ -1,5 +1,5 @@
 import express from "express";
-import managementController from "./app/controllers/management.controller.js";
+import managementController from "./controllers/management.controller.js";
 
 const app = express();
 
