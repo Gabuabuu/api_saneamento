@@ -1,6 +1,6 @@
 import app from "./src/app.js";
 
-import connectionDataBase from "./src/app/database/connection.js";
+import connectionDataBase from "./src/database/connection.js";
 
 connectionDataBase.connect((error) => {
   if (error) {
