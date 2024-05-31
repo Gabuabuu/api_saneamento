@@ -1,6 +1,6 @@
 const request = require('supertest');
 import { response } from 'express';
-import app from '../../../src/app.js'; // Ajuste o caminho conforme necessário
+import app from '../app.js'; // Ajuste o caminho conforme necessário
 
 describe('GET /bairros', () => {
     it('deve retornar uma lista de dados do banco de dados', async () => {
