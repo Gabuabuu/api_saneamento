@@ -6,9 +6,9 @@ describe('GET /bairros', () => {
     it('deve retornar uma lista de dados do banco de dados', async () => {
         const response = await request(app).get('/bairros');
         const mockNeighborhood = [
-            { id: 58, bairro: 'Elmo', empresa: 'Dmae', horario: '7:40' },
-            { id: 59, bairro: 'Alameda', empresa: 'Dmae', horario: '7:40' },
-            { id: 60, bairro: 'Grifinoria', empresa: 'Dmae', horario: '7:40' },
+            { id: 1, bairro: 'Alameda', empresa: 'Dmae', horario: '10:00' },
+            { id: 2, bairro: 'Ipanema', empresa: 'Dmae', horario: '12:40' },
+            { id: 3, bairro: 'Ipiranga', empresa: 'Dmae', horario: '17:17' },
 
             // outros dados simulados
         ];
@@ -31,9 +31,9 @@ describe('GET /bairros', () => {
     it('deve criar um novo bairro', async () => {
         const mockNeighborhood = [
 
-            { bairro: 'Alameda1', empresa: 'Dmae', horario: '7:40' },
-            { bairro: 'Alameda2', empresa: 'Dmae', horario: '7:40' },
-            { bairro: 'Alameda3', empresa: 'Dmae', horario: '7:40' }
+            { bairro: 'Alameda', empresa: 'Dmae', horario: '10:00' },
+            { bairro: 'Ipanema', empresa: 'Dmae', horario: '12:40' },
+            { bairro: 'Ipiranga', empresa: 'Dmae', horario: '17:17' }
 
         ]
 
@@ -41,12 +41,12 @@ describe('GET /bairros', () => {
             .post('/bairros/gerenciamento')
             .send(mockNeighborhood)
             .expect(201)
-            .expect(response.body)
+            expect(response.body)
 
     }); /*Funcionando */
 
     it('deve deletar por id', async () => {
-        const id = 90
+        const id = 1
         const response = await request(app)
             .delete(`/bairros/gerenciamento/delete/${id}`)
             .expect(200)
