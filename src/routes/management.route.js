@@ -4,8 +4,6 @@ const route = Router();
 
 route.get("/bairros", managementController.neighborhoodList);
 
-route.get("/bairros/buscar", managementController.neighborhoodList);
-
 route.get("/bairros/buscar/:id", managementController.neighborhoodListById);
 
 route.post("/bairros/gerenciamento", managementController.neighborhoodAdd);
