@@ -2,3 +2,4 @@ node_modules
 .env
 src/app/controllers/tests/management.spec.js
 jest.congif.js
+package-lock.json
