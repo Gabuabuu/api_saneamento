@@ -25,29 +25,33 @@ describe('GET /bairros', () => {
 
         expect(200);
         expect(response.body)
-        });
     });
+});
 
-    it('deve criar um novo bairro', async () => {
-        const mockNeighborhood = [
+it('deve criar um novo bairro', async () => {
+    const mockNeighborhood = [
 
-            { bairro: 'Alameda', empresa: 'Dmae', horario: '10:00' },
-            { bairro: 'Ipanema', empresa: 'Dmae', horario: '12:40' },
-            { bairro: 'Ipiranga', empresa: 'Dmae', horario: '17:17' }
+        { bairro: 'Alameda', empresa: 'Dmae', horario: '10:00' },
+        { bairro: 'Ipanema', empresa: 'Dmae', horario: '12:40' },
+        { bairro: 'Ipiranga', empresa: 'Dmae', horario: '17:17' },
+        { bairro: 'Osório', empresa: 'Dmae', horario: '17:17' }
 
-        ]
+    ]
 
-        await request(app)
-            .post('/bairros/gerenciamento')
-            .send(mockNeighborhood)
-            .expect(201)
-            expect(response.body)
-
-    }); /*Funcionando */
-
-    it('deve deletar por id', async () => {
-        const id = 1
+    // Mapear cada item do array para enviar uma requisição
+    for (const i of mockNeighborhood) {
         const response = await request(app)
-            .delete(`/bairros/gerenciamento/delete/${id}`)
-            .expect(200)
-    })
+            .post('/bairros/gerenciamento')
+            .send(i)
+            .expect(201)
+        expect(response.body)
+    }
+})
+    ; /*Funcionando */
+
+it('deve deletar por id', async () => {
+    const id = 4
+    const response = await request(app)
+        .delete(`/bairros/gerenciamento/delete/${id}`)
+        .expect(200)
+})
